@@ -79,7 +79,7 @@ def main():
                 filename = opened_file #Ahora el archivo donde guardar es el abierto
             elif event is 'Nuevo':
                 filename = create_file(text) #Me devuelve el nombre del archivo nuevo creado
-                opened_file = filename
+                opened_file = filename #El archivo actualmente abierto es el que creo anteriormente. Se usa opened_file en caso de que toque Guardar
                 multiline_object.Update(value = '') #Actualizo la ventana para dejarala vacia   
             elif event is 'Guardar Como':
                 #Cambio filename a la ruta donde quiere guardar el archivo
