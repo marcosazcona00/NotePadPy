@@ -80,7 +80,7 @@ def main():
             ['Python', ['Ejecutar']]
            ]
 
-    column = [[sg.Multiline(size=(140,40),font='Courier 11',key='Multi')]]
+    column = [[sg.Multiline(size=(140,35),font='Courier 11',key='Multi')]]
 
     layout = [[sg.Menu(menu),sg.Column(column)]]
 
@@ -113,8 +113,8 @@ def main():
                 elif event is 'Nuevo':
                     filename = create_file() #Me devuelve el nombre del archivo nuevo creado
                     opened_file = filename #El archivo actualmente abierto es el que creo anteriormente. Se usa opened_file en caso de que r
-                    opened_file_name = change_title_window(window,opened_file)
-                    if get_extension(opened_file_name) == '.py':
+                    opened_file_name = change_title_window(window,opened_file) #Me devuelve el nombre del archivo 'notepad.py' por ejemplo
+                    if get_extension(opened_file_name) == '.py': #Si la extension del archivo es .py
                     	text= create_python_structure() #Retorna el texto con la estructura de un .py
                     multiline_object.Update(value = text) #Actualizo la ventana para dejarala vacia   
 
