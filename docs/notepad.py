@@ -1,5 +1,6 @@
-﻿import PySimpleGUI as sg
+﻿#@Author --> Azcona Marcos
 
+import PySimpleGUI as sg
 
 def get_extension(filename):
     '''
@@ -8,7 +9,7 @@ def get_extension(filename):
     index_id = 0
     for index in range(len(filename)):
         if filename[index] is '.': #Si en esa posición está el punto, todo lo que resta es extension
-            index_id = index
+            index_id = index #Guardo el indice de donde arranca el punto.
             break
 
     return filename[index_id:] #Devuelve el string desde el punto hasta el final
@@ -17,7 +18,6 @@ def save_file(text,filename):
     '''
         Guarda el contenido de lo escrito en el archivo
     '''            
-    print(text)
     with open(filename,'w') as file:
         file.write(text)
 
@@ -33,8 +33,8 @@ def create_file(content):
         Crea el archivo en la carpeta que corresponda
     '''
     text = sg.popup_get_text('Ingrese el nombre del archivo')
-    file_path = sg.popup_get_folder('folder',no_window=True)
-    filename=file_path+'/'+text
+    file_path = sg.popup_get_folder('folder',no_window=True) #Guardo en file_path la ruta del archivo
+    filename=file_path+'/'+text #Concateno la ruta con el texto /home/directory/nombre_archivo.extension
     return filename
 
 def main():
@@ -85,6 +85,7 @@ def main():
                 #Cambio filename a la ruta donde quiere guardar el archivo
                 filename = sg.popup_get_file('file to open', no_window=True)  #Devuelve la ruta completa del archivo  
             save_file(text,filename) #Guardo el texto en el archivo elegido
+
 
 if __name__ == '__main__':
     main()
