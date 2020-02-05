@@ -1,4 +1,5 @@
 ﻿#@Author --> Azcona Marcos
+#TODO agregar el Ctrl + Z, el Ctrl + S para guardar directamente
 
 import PySimpleGUI as sg
 
