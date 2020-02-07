@@ -121,12 +121,16 @@ def main():
                 elif event is 'Guardar Como':
                     #Cambio filename a la ruta donde quiere guardar el archivo
                     filename = sg.popup_get_file('file to open', no_window=True)  #Devuelve la ruta completa del archivo  
-                save_file(text,filename) #Guardo el texto en el archivo elegido
-            
+                try:
+                    save_file(text,filename) #Guardo el texto en el archivo elegido
+                except UnboundLocalError: #Esta excepcion es por si crea un archivo vacio y manda a ejecutar
+                    continue
             if event is 'Ejecutar' and is_python_extension(opened_file_name):
                 #Permite ejecutar un .PY
-                os.system('/usr/bin/python3 {}'.format(opened_file_name))
+                os.system('/usr/bin/python3 {}'.format(filename))
 
 
 if __name__ == '__main__':
     main()
+
+
