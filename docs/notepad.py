@@ -100,7 +100,7 @@ def main():
         else:
             if event is 'Abrir':
                 filename = sg.popup_get_file('file to open', no_window=True)  #Devuelve la ruta completa del archivo
-                if get_extension(filename) in extensions:   #Si es una extension valida
+                if get_extension(filename) in extensions:   #Si es una extension valida del tipo .txt
                     text = get_content(filename) #Devuelve el contenido del archivo
                     opened_file = filename
                     multiline_object.Update(value = text) #Actualizo la ventana con el texto del archivo
