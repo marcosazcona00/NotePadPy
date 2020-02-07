@@ -129,11 +129,15 @@ def main():
                     continue
             if event is 'Ejecutar' and is_python_extension(opened_file_name):
                 #Permite ejecutar un .PY
-                os.system('/usr/bin/python3 {}'.format(filename))
+                #os.system('/usr/bin/python3 {}'.format(filename))
+                os.system("gnome-terminal -e 'bash -c \"python3 {}; exec bash\"'".format(filename))
 
 
 if __name__ == '__main__':
     main()
+
+
+
 
 
 
