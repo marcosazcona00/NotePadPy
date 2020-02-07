@@ -115,7 +115,9 @@ def main():
                     opened_file = filename #El archivo actualmente abierto es el que creo anteriormente. Se usa opened_file en caso de que r
                     opened_file_name = change_title_window(window,opened_file) #Me devuelve el nombre del archivo 'notepad.py' por ejemplo
                     if get_extension(opened_file_name) == '.py': #Si la extension del archivo es .py
-                    	text= create_python_structure() #Retorna el texto con la estructura de un .py
+                    	text = create_python_structure() #Retorna el texto con la estructura de un .py
+                    else:
+                        text = '' #Si la extension no es .py, pongo que el texto a mostrar en la ventana se vacie y muestre todo blanco
                     multiline_object.Update(value = text) #Actualizo la ventana para dejarala vacia   
 
                 elif event is 'Guardar Como':
@@ -132,5 +134,6 @@ def main():
 
 if __name__ == '__main__':
     main()
+
 
 
